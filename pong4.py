@@ -38,14 +38,14 @@ while not end:
     key = pygame.key.get_pressed()
 
     if key[pygame.K_o]:
-        print("Key O pressed")
-        print("Mode Auto")
-        auto = ___
+        #print("Key O pressed")
+        #print("Mode Auto")
+        auto = True
 
     if key[pygame.K_m]:
-        print("Key M pressed")
-        print("Mode Manuel")
-        auto = ___
+        #print("Key M pressed")
+        #print("Mode Manuel")
+        auto = False
 
     if not auto:
         # Manual mode :
@@ -53,55 +53,55 @@ while not end:
         #  - use UP, DOWN, LEFT, RIGHT to move circle by <speed> pixel
 
         if key[pygame.K_a]:
-            print("Key A pressed")
+            #print("Key A pressed")
             x = radius
             y = radius
 
         if key[pygame.K_z]:
-            print("Key Z pressed")
+            #print("Key Z pressed")
             x = WIDTH - radius
             y = radius
 
         if key[pygame.K_q]:
-            print("Key Q pressed")
+            #print("Key Q pressed")
             x = radius
             y = HEIGHT - radius
 
         if key[pygame.K_s]:
-            print("Key S pressed")
+            #print("Key S pressed")
             x = WIDTH - radius
             y = HEIGHT - radius
 
         if key[pygame.K_UP]:
-            print("Key UP pressed")
-            ???
+            #print("Key UP pressed")
+            y = y - speed
 
         if key[pygame.K_DOWN]:
-            print("Key DOWN pressed")
-            ???
+            #print("Key DOWN pressed")
+            y = y + speed
 
         if key[pygame.K_LEFT]:
-            print("Key LEFT pressed")
-            ???
+            #print("Key LEFT pressed")
+            x =x-speed
 
         if key[pygame.K_RIGHT]:
-            print("Key RIGHT pressed")
-            ???
+            #print("Key RIGHT pressed")
+            x = x + speed
 
     else:
         # if the circle touches the right and left edges
         # reverse direction on x-axis
-        if ____:
-            x_sens = ____
+        if x < radius or x > WIDTH - radius:
+            x_sens = -x_sens
 
         # if the circle touches the lower and upper edges
         # reverse direction on y-axis
-        if ___:
-            y_sens = ___
+        if y <radius or y > HEIGHT - radius:
+            y_sens = -y_sens
 
         # compute new coordonates
-        x = x + ___
-        y = y + ___
+        x = x + x_sens*speed
+        y = y + y_sens*speed
 
 
     pygame.draw.circle(screen, WHITE, (x, y), radius)
